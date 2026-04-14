@@ -1,0 +1,44 @@
+/* Highlight Motion — content styles */
+
+/* Word wrapper: animated background highlight sweep */
+.hm-word {
+    display: inline;
+    position: relative;
+    /* highlight band padding controlled via js based on thickness */
+    padding-top: var(--hm-pad, 0);
+    padding-bottom: var(--hm-pad, 0);
+    border-radius: 2px;
+    background: linear-gradient(to right, var(--hm-bg) 50%, rgba(255, 255, 255, 0) 50%);
+    /* Use 210% to prevent subpixel rounding artifacts (thin yellow lines at word boundaries) */
+    background-size: 210% 100%;
+    background-position: 100% 0;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+/* Inner text: animated color sweep */
+.hm-text {
+    background: linear-gradient(to right, var(--hm-tx) 50%, var(--hm-orig, currentColor) 50%);
+    background-size: 210% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    white-space: pre-wrap;
+}
+
+/* Animation trigger classes */
+.hm-animate {
+    animation: hm-sweep var(--hm-dur) linear forwards;
+    animation-delay: var(--hm-del);
+}
+.hm-animate-text {
+    animation: hm-sweep var(--hm-dur) linear forwards;
+    animation-delay: var(--hm-del);
+}
+
+@keyframes hm-sweep {
+    0%   { background-position: 100% 0; }
+    100% { background-position: 0 0; }
+}
