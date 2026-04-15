@@ -7,7 +7,7 @@
     /* highlight band padding controlled via js based on thickness */
     padding-top: var(--hm-pad, 0);
     padding-bottom: var(--hm-pad, 0);
-    border-radius: 2px;
+    border-radius: 0;
     background: linear-gradient(to right, var(--hm-bg) 50%, rgba(255, 255, 255, 0) 50%);
     /* Use 210% to prevent subpixel rounding artifacts (thin yellow lines at word boundaries) */
     background-size: 210% 100%;
